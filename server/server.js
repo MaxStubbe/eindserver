@@ -27,9 +27,23 @@ app.use(expressJWT({
     ]
 }));
 
+app.set('port', (process.env.PORT | config.webPort));
+app.set('env', (process.env.ENV | 'development'))
+
 app.use('/api/v1', routes_v1);
 app.use('/api/v2', routes_v2);
 app.use('/api/v1',routes_login);
+
+app.use(function(err, req, res, next) {
+    // console.dir(err);
+    var error = {
+        message: err.message,
+        code: err.code,
+        name: err.name,
+        status: err.status
+    }
+    res.status(401).send(error);
+});
 
 app.listen(process.env.PORT || 3000, function(){
 	console.log('De server luistert op port 3000');	
