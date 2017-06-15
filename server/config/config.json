@@ -1,6 +1,6 @@
 {
 	"webPort"	: "3000",
-	"dbHost"	: "localhost",
+	"dbHost"	: "192.168.1.13",
 	"dbUser"	: "Prog4", 
 	"dbDatabase": "filmdatabase",
 	"secretkey" : "Die is een hele lange secret key maat nu kan niemand bij mijn shit g"
